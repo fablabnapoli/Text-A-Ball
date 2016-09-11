@@ -6,7 +6,7 @@ Tweet A Ball (TaB) is a robot designed to "draw" the text of tweets containing s
 Unlike other Eggbot and similar, TaB is fully autonomous and does not require an external control station (PC) or software for processing text draw.
 
 ## Project history.
-TaB was designed by Fablab Naples within IntelMaker competition for the occasion of Maker Faire 2016 exhibition.
+TaB was designed by Fablab Napoli within IntelMaker competition for the occasion of Maker Faire 2016 exhibition.
 
 The project, mainly intended for teaching purposes, aims to explore Intel Edison platform capability.
 
@@ -42,6 +42,7 @@ It is the core of the entire system, it converts the G-code instructions into el
 ## TAB Network.
 The internal software stack has been designed to allow more TaB robots work together in the tweet representation.
 
+<<<<<<< HEAD
 That is, a "*network of TaB robots*".
 
 In this configuration one of TaB assumes the role of master, taking charge of selecting the tweets to draw and the other acting as a slave waiting by the first content to be displayed.
@@ -53,3 +54,6 @@ This configuration allows you to *draw multiple tweets* at a time.
 <!--
 ## Hardware stack
 -->
+=======
+## Hardware stack
+>>>>>>> 7d08380b33ec264f6560d79c6d7bbaf447518428
