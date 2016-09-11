@@ -1,24 +1,22 @@
 # Project description.
 Tweet A Ball (TaB) è una robot  ideato per riportare il testo dei tweet contenenti  specifici hashtags su palline, uova ed altre superfici sferiche.
 
-A differenza delle altre EggBot e similari in circolazione, TaB è totalmente autonoma e non necessita di una stazione di controllo esterna (PC) o di software per l'elaborazione del testo da stampare. 
+A differenza delle altre EggBot e similari in circolazione, TaB è totalmente autonoma e non necessita di una stazione di controllo esterna (PC) o di software per l'elaborazione del testo da stampare.
 
 # Project history
 TaB è stata realizzata dal Fablab Napoli nell'ambito dell'iniziativa IntelMaker in occasione della Maker Faire Rome 2016.
 
 Il progetto, ideato principalmente con finalità didattiche, mira ad esplorare le potenzialità offerte dalla piattaforma Edison di Intel.
 
-# Come funziona la TaB
+# Come funziona la TaB.
 Sfruttando le potenzialità di Intel Edison, la TaB può connettersi ad internet e scandagliare il flusso Twitter alla ricerca si specifici argomenti di discussione (hashtags).
 
 Individuato un messaggio corrispondere ai criteri di ricerca, il software interno al robot lo converte in una serie di linee, curve e punti.
 
 Infine il tutto viene convertito in una sequenza di comandi di movimento che attivano il braccio di scrittura.
 
-
-
-# Software stack
-Lo stack software è stato ideato specificamente per la piattaforma Intel Edison ed è costituito dei seguenti moduli:
+# Software stack.
+L'intero stack software è stato ideato specificamente per la piattaforma Intel Edison ed è costituito dei seguenti moduli:
 
 * Dispatcher
 * Host
@@ -28,7 +26,7 @@ Lo stack software è stato ideato specificamente per la piattaforma Intel Edison
 I moduli *Dispatcher*, *Host* e *Post-processor* sono stato stati concepiti in Python e vengono eseguiti dalla CPU,  mentre il modulo Firmware è stato adattato per la MCU di Intel Edison.
 
 
-# Dispatcher
+# Dispatcher.
 È il modulo che si occupa della selezione e del filtraggio dei tweets e della gestione dello spool (coda di stampa). 
 
 ## Host
