@@ -7,7 +7,10 @@ This project concerns the ways to convert virtual information into the real worl
 
 Tweet A Ball (TaB) is a robot designed to "draw" the text of tweets containing specific hashtags on balls, eggs and other spherical surfaces.
 
-Unlike other Eggbot and similar, TaB is fully autonomous and doesn't require an external control station (PC) nor software for processing text draw.
+TaB is a simple exmple of how is possibles to conver bits in athoms
+
+Unlike other *Egg-bot machines and similar, TaB is fully autonomous and doesn't require an external control station (PC) nor software for processing text to draw.
+
 
 ## Project history.
 TaB was designed by Fablab Napoli within IntelMaker competition in occasion of Maker Faire 2016 exhibition.
@@ -28,6 +31,8 @@ The entire software stack is designed specifically for the Intel Edison platform
 * Host
 * Post-processor
 * Firmware
+
+![Single TaB diagram](docImages/singleTaBDiagram.png)
 
 The modules * Dispatcher *, * Host * and * Post-processors * have been designed in Python and are executed by Intel Edison CPU, while the firmware module has been adapted for Intel Edison MCU.
 
