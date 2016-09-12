@@ -1,7 +1,7 @@
 # Tweet - A - Ball
 
 ## Project description.
-This project concerns the ways to convert virtual information into the real world objects and trying to simplify access to digital fabrication tools.
+This project concerns the ways to convert virtual information into the real world objects and try to simplify access to digital fabrication tools.
 
 ![From Bits to Atoms](docImages/fromBit2Atoms.png)
 
