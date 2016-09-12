@@ -1,5 +1,4 @@
-Dependencies: 
-1) Python ver. >= 2.7.9
+Dependencies: 'Python ver. >= 2.7.9'
 
 Installation TaB:
 1 Clone the project repository
@@ -13,7 +12,7 @@ Installation TaB:
 	
 Running TaB
 
-1 Move to the project root directory
+1. Move to the project root directory
 * Move to the Dispatcher module.
 	cd Dispatcher
 * Run the Dispatcher module
