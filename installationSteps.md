@@ -1,6 +1,7 @@
 Dependencies: `Python ver. >= 2.7.9`
 
 Installation TaB:
+
 1. Clone the project repository
 	`git clone https://github.com/fablabnapoli/tweetABall`
 * Install the module "JSON encoder and decoder"
