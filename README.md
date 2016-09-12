@@ -3,7 +3,7 @@
 ## Project description.
 This project concerns the ways to convert virtual information into the real world objects and trying to simplify access to digital fabrication tools.
 
-[From Bits to Atoms](docImags/fromBit2Atoms.png)
+[From Bits to Atoms](docImages/fromBit2Atoms.png)
 
 Tweet A Ball (TaB) is a robot designed to "draw" the text of tweets containing specific hashtags on balls, eggs and other spherical surfaces.
 
