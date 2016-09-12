@@ -38,10 +38,10 @@ class dbStreamer(tweepy.StreamListener):
 
 class twitterStreamClient:
 
-   consumer_key = '7qGwdixMUo4CWvEjMhpTRxVKS'
-   consumer_secret = 'z6JcIsmkkBwl8EEIu8mfz7npWfzMAtlz4J8wuMWNxX9rKQXgou'
-   access_token = '2628868049-ZYqzKlExAwChVQIGN8qkI7MJbhNMSNRrOOe418H'
-   access_token_secret = 'EZ4ehZVqMYAGZCmkCtQIMryH3qED9TLcyfWfZnzhZIwTq'
+   consumer_key = '###INSERT YOUR KEY HERE###'
+   consumer_secret = '###INSERT YOUR KEY HERE###'
+   access_token = '###INSERT YOUR KEY HERE###'
+   access_token_secret = '###INSERT YOUR KEY HERE###'
 
    #Costruttore di classe
    def __init__(self):
@@ -50,4 +50,4 @@ class twitterStreamClient:
       
       dbs = dbStreamer("database/tabDB.db")
       stream = tweepy.Stream(auth, dbs)
-      stream.filter(track=['italia'], async=False) 
+      stream.filter(track=['###INSERT YOUR SEARCHING KEYWORD HERE###'], async=False) 
