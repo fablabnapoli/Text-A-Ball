@@ -15,6 +15,8 @@ class Tweet():
 	msg = ""
 	user = ""
 	date = ""
+	status = ""
+
 	tableName = "tweets"
 
 
@@ -46,27 +48,42 @@ class Tweet():
 	def getId(self):
 		# Restituisce il valore del Tweet
 		return self.id
+		
+	def setId(self, id):
+		# Imposta il valore del id
+		self.id = id
+
+	def getUser(self):
+		# Restituisce il nome dell'autore
+		return self.user
 
 	def setUser(self, user):
 		# Imposta il nome dell'autore
 		self.user = user
 
-	def getUser():
-		# Restituisce il nome dell'autore
-		return self.user
+	def getMsg(self):
+		# Restituisce il corpo del messaggio
+		return self.msg		
 
 	def setMsg(self,msg):
 		# Imposta il corpo del messaggio
 		self.msg = msg
 
-	def getMsg(self):
+	def getDate(self):
+		# Restituisce la data di invio del Tweet
+		return self.date
+
+	def setDate(self, date):
+		# Imposta il valore della data di invio del Tweet (YYYYMMDD)
+		self.date = date		
+		
+	def getStatus(self):
 		# Restituisce il corpo del messaggio
-		return self.msg
-		
-		
-	def setId(self, id):
-		# Imposta il valore del id
-		self.id = id
+		return self.date
+	
+	def setStatus(self, status):
+		# Imposta il valore del stato
+		self.status = status		
 		
 	def save(self):
 		# Salva il tweet nel DB
@@ -75,12 +92,6 @@ class Tweet():
 						
 		cur.execute('INSERT OR REPLACE INTO tweets  (id, msg, user, date) VALUES (?, ?, ?, ?)', (self.id, self.msg, self.user, self.date))
 		self.dbConn.commit()
-			
-		
-"""	
-	def delete():
-		# Elimina il tweet dal DB
-"""
 
 class TweetList():
 		"""
@@ -119,7 +130,7 @@ class TweetList():
 				newTweet.setMsg(tweetLine[1])	# Imposto il msg
 				newTweet.setUser(tweetLine[2])	# Imposto l'utente
 				newTweet.setUser(tweetLine[3])	# Imposto la data				
-				# newTweet.setUser(tweetLine[4])	# Imposto lo stato
+				newTweet.setUser(tweetLine[4])	# Imposto lo stato
 				
 				tweetList.append(newTweet)		# Aggiungo all'elenco
 			
