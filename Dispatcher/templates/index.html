@@ -3,12 +3,39 @@ $def with (tweetList)
 <html>
 		<head>
 			<title>Tweet a Ball: Dispatcher</title>
+			
+			<link rel="stylesheet" type="text/css" href="static/DataTables/datatables.min.css"/>
+			
+			<script type="text/javascript" charset="utf8" src="static/DataTables/datatables.min.js"></script>
+			<script>
+				jQuery(document).ready( function () {
+					jQuery('#table_id').DataTable();
+				} );
+			</script>
+			
 		</head>
 	<body>
-
-		$for tweet in tweetList:
-			<div> 
-				$tweet.getMsg()
+		<table id="table_id" class="display">
+		    <thead>
+				<tr>
+					<th>Id</th>
+					<th>Message</th>
+					<th>User</th>
+					<th>Date</th>
+					<th>State</th>
+				</tr>
+			</thead>
+			<tbody>
+			$for tweet in tweetList:
+				<tr>
+					<td>$tweet.getId()</td>
+					<td>$tweet.getMsg()</td>
+					<td>$tweet.getUser()</td>
+					<td>$tweet.getDate()</td>
+					<td>$tweet.getStatus()</td>
+				</tr>
+			</tbody>
+				
 			</div>
 
 	</body>
