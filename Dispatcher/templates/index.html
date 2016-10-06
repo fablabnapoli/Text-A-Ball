@@ -1,15 +1,15 @@
-$def with (greeting)
+$def with (tweetList)
 
 <html>
-    <head>
-        <title>Tweet a Ball: Dispatcher</title>
-    </head>
-<body>
+		<head>
+			<title>Tweet a Ball: Dispatcher</title>
+		</head>
+	<body>
 
-$if greeting:
-    I just wanted to say <em style="color: green; font-size: 2em;">$greeting</em>.
-$else:
-    <em>Hello</em>, world!
+		$for tweet in tweetList:
+			<div> 
+				$tweet.getMsg()
+			</div>
 
-</body>
+	</body>
 </html>
