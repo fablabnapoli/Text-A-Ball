@@ -129,8 +129,8 @@ class TweetList():
 				newTweet.setId(tweetLine[0])	# Imposto l'ID
 				newTweet.setMsg(tweetLine[1])	# Imposto il msg
 				newTweet.setUser(tweetLine[2])	# Imposto l'utente
-				newTweet.setUser(tweetLine[3])	# Imposto la data				
-				newTweet.setUser(tweetLine[4])	# Imposto lo stato
+				newTweet.setDate(tweetLine[3])	# Imposto la data				
+				newTweet.setStatus(tweetLine[4])	# Imposto lo stato
 				
 				tweetList.append(newTweet)		# Aggiungo all'elenco
 			
