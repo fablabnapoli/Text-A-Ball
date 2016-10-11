@@ -16,15 +16,16 @@ class dbStreamer(tweepy.StreamListener):
 		try:
 			decoded = json.loads(data)
 			
-			newTweet = tweet(self.dbConn)
+			# newTweet = Tweet(self.dbConn)
 			newTweet = Tweet()
 			newTweet.setId(str(decoded['id']))
 			newTweet.setMsg(decoded['text'].encode('ascii', 'ignore'))
 			newTweet.setUser(decoded['user']['name'])
-			newTweet.setDate()
+			# newTweet.setDate("")
+			newTweet.setStatus("new")
 			newTweet.save()
 			
-			# print str(decoded['id'])
+			# print("Tweet2DB - New Tweet: %s " %(newTweet.getId()))
 			
 		except sqlite3.Error, e:
 			print "Query Error %s:" % e.args[0]

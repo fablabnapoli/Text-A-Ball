@@ -29,7 +29,7 @@ class Tweet():
 			raise Exception("Tweet.__init__: Data base not connected")	
 		
 		if id: # Se è stato fornito un id recupero il tweet rorrispondente dal DB
-			print("Tweet.__init__: id %s required" %(id))
+			# print("Tweet.__init__: id %s required" %(id))
 			cur = self.dbConn.cursor()
 			
 			# Ricerco il tweet corrispondente all'id fornito.
@@ -96,7 +96,7 @@ class Tweet():
 	
 	def delete(self):
 		cur = self.dbConn.cursor()
-		print("DELETE FROM tweets WHERE id= (int) %s" %(self.id) )
+		# print("DELETE FROM tweets WHERE id= (int) %s" %(self.id) )
 		cur.execute('DELETE FROM tweets WHERE id=?', (self.id,))
 		self.dbConn.commit()
 		

@@ -52,7 +52,7 @@ if __name__ == "__main__":
 		
 	except sqlite3.Error as e:
 		print "Sqlite error:\n %s" % e.args[0]
-	except tweepy.TweetError as e:
-		print ("Tweepy error:\n %s" %(e))
-	except Exception, e:
-		print ("General error:\n %s" %(e))
+	# except tweepy.TweetError as e:
+		# print ("Tweepy error:\n %s" %(e))
+	# except Exception, e:
+		# print ("General error:\n %s" %(e))
