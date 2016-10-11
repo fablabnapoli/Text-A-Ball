@@ -47,4 +47,4 @@ class twitterStreamClient:
 		# dbs = dbStreamer(dbConn)
 		dbs = dbStreamer()
 		stream = tweepy.Stream(auth, dbs)
-		stream.filter(track=txtToTrack, async=False) 
+		stream.filter(track=[txtToTrack], async=False) 

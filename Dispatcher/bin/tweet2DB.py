@@ -20,9 +20,8 @@ Config.read("config.ini")
 authData = dict(Config.items("authData"))
 
 # Recupero l'elenco delle keywords e/o gli hashtags da tracciare
-txtToTrack = []
-for key, val in Config.items("textToTrack"):
-	txtToTrack.append(val)
+txtToTrack=' '.join((val) for key, val in Config.items("textToTrack"))
+print("Searching for [%s]" %(' '.join((val) for key, val in Config.items("textToTrack"))))
 
 # Recupero il nome del DataBase
 dbName = Config.get("dbName", "dbName")
