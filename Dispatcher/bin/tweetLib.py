@@ -29,14 +29,15 @@ class Tweet():
 			raise Exception("Tweet.__init__: Data base not connected")	
 		
 		if id: # Se Ã¨ stato fornito un id recupero il tweet rorrispondente dal DB
+			print("Tweet.__init__: id %s required" %(id))
 			cur = self.dbConn.cursor()
 			
 			# Ricerco il tweet corrispondente all'id fornito.
 			cur.execute('SELECT * FROM tweets WHERE id=?', (id,))
 			results = cur.fetchall()
 			
-			if len(results) == 1 : # Se il tweet ricercato esiste ed è unico
-				(self.id, self.msg, self.user, self.date) = results[0]
+			if len(results) == 1 : # Se il tweet ricercato esiste ed e unico
+				(self.id, self.msg, self.user, self.date, self.status, ) = results[0]
 			else:
 				raise Exception("Tweet.__init__: Tweet %s non trovato" %(id))
 		# elif dataArray:
@@ -79,7 +80,7 @@ class Tweet():
 		
 	def getStatus(self):
 		# Restituisce il corpo del messaggio
-		return self.date
+		return self.status
 	
 	def setStatus(self, status):
 		# Imposta il valore del stato
@@ -90,8 +91,15 @@ class Tweet():
 		
 		cur = self.dbConn.cursor()			
 						
-		cur.execute('INSERT OR REPLACE INTO tweets  (id, msg, user, date) VALUES (?, ?, ?, ?)', (self.id, self.msg, self.user, self.date))
+		cur.execute('INSERT OR REPLACE INTO tweets  (id, msg, user, date, status) VALUES (?, ?, ?, ?, ?)', (self.id, self.msg, self.user, self.date, self.status))
 		self.dbConn.commit()
+	
+	def delete(self):
+		cur = self.dbConn.cursor()
+		print("DELETE FROM tweets WHERE id= (int) %s" %(self.id) )
+		cur.execute('DELETE FROM tweets WHERE id=?', (self.id,))
+		self.dbConn.commit()
+		
 
 class TweetList():
 		"""

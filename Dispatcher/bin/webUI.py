@@ -63,27 +63,38 @@ class Delete:
 		getData = web.input()
 		
 		if getData["id"]:
-			# tweet2Delete = Tweet(str(getData["id"]))
 			tweet2Delete = Tweet(getData["id"])
 			tweet2Delete.delete()
 			print("Delete request for tweet id: %s\n" %(getData["id"]))
-			# tweet2Delete = Tweet(getData["id"])
 		else:
 			print("Id not found: %s\n" %(getData))
 		
-		# print("Id not found: %s\n" %(getData["id"]))
-
 	def __del__(self):
 		__builtin__.dbConn.close()		
 		
 class Print:
 	def __init__(self):
-		pass
+		# Web.py crea un thread per ogni richiesta http.
+		# Gli oggetti __builtin__ sono relativi solo al thred in cui sono stati creati
+		# Per cui devo creare una connessione per ogni request HTTP
+		__builtin__.dbConn = sqlite3.connect(dbName)
 		
 	def GET(self):
 		getData = web.input()
 	
 		if getData["id"]:
+			# Invio il comando di stampa all'host
+			# Parte ancora da implementare
+			
+			# Aggiorno lo stato del tweet
+			tweet2Delete = Tweet(getData["id"])
+			tweet2Delete.setStatus("Printing")
+			tweet2Delete.save()
+			
+			# Preparo l'output aggiornato
+			# Parte ancora da implementare
+			return tweet2Delete.getStatus()
+			
 			print("Print request for tweet id: %s\n" %(getData["id"]))
 		else:
 			print("Id not found: %s\n" %(getData))
