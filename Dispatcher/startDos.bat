@@ -12,4 +12,4 @@ REM Starting web UI
 start "TaB Web UI" /B /D %curDir%\ "%python%" ".\bin\webUI.py"
 
 REM Starting printers listner
-start "TaB Web UI" /B /D %curDir%\ "%python%" ".\bin\webUI.py"
+REM start "TaB Web UI" /B /D %curDir%\ "%python%" ".\bin\webUI.py"

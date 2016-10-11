@@ -1,4 +1,4 @@
-import __builtin__
+﻿import __builtin__
 import sqlite3
 import web
 import sys
@@ -22,7 +22,9 @@ dbName = Config.get("dbName", "dbName")
 # classi associate.
 urls = (
    '/', 'Index',
-   '/shutdown', 'Shutdown', 
+   '/delete', 'Delete',
+   '/print', 'Print',
+
 )
 
 # Classe per la gestione della pagina index (/)
@@ -50,6 +52,46 @@ class Index:
 	def __del__(self):
 		__builtin__.dbConn.close()
 
+class Delete:
+	def __init__(self):
+		# Web.py crea un thread per ogni richiesta http.
+		# Gli oggetti __builtin__ sono relativi solo al thred in cui sono stati creati
+		# Per cui devo creare una connessione per ogni request HTTP
+		__builtin__.dbConn = sqlite3.connect(dbName)	
+	
+	def GET(self):
+		getData = web.input()
+		
+		if getData["id"]:
+			# tweet2Delete = Tweet(str(getData["id"]))
+			tweet2Delete = Tweet(getData["id"])
+			tweet2Delete.delete()
+			print("Delete request for tweet id: %s\n" %(getData["id"]))
+			# tweet2Delete = Tweet(getData["id"])
+		else:
+			print("Id not found: %s\n" %(getData))
+		
+		# print("Id not found: %s\n" %(getData["id"]))
+
+	def __del__(self):
+		__builtin__.dbConn.close()		
+		
+class Print:
+	def __init__(self):
+		pass
+		
+	def GET(self):
+		getData = web.input()
+	
+		if getData["id"]:
+			print("Print request for tweet id: %s\n" %(getData["id"]))
+		else:
+			print("Id not found: %s\n" %(getData))
+			
+			
+		def __del__(self):
+			pass
+		
 # Attivazione della web application
 app = web.application(urls, globals())
 
@@ -67,6 +109,10 @@ if __name__ == "__main__":
 		
 		# Avvio della ControlInterface web 
 		app.run()
+		
+		# __builtin__.dbConn = sqlite3.connect(dbName)
+		# tweetTest = Tweet("784040250175651840")
+		# print("Tweet Msg: %s" %(tweetTest.getMsg()))
 
 		
 	except sqlite3.Error as e:

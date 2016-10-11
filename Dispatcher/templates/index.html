@@ -11,6 +11,19 @@ $def with (tweetList)
 				jQuery(document).ready( function () {
 					jQuery('#table_id').DataTable();
 				} );
+				
+								
+				function deleteTweet(tweetId) {
+					jQuery.ajax({url: "/delete?id="+tweetId, success: function(result){
+						jQuery("#TR-"+tweetId).remove();}, error: function(result){
+						alert("Non posso cancellare il tweet id: "+tweetId)} });
+				}
+
+				function printTweet(tweetId) {
+					jQuery.ajax({url: "/print?id="+tweetId, success: function(result){
+						jQuery("#TR-"+tweetId).update(result);}, error: function(result){
+						alert("Non inviare in stampa il tweet id: "+tweetId)} });
+				}
 			</script>
 			
 		</head>
@@ -23,16 +36,28 @@ $def with (tweetList)
 					<th>User</th>
 					<th>Date</th>
 					<th>State</th>
+					<th>&nbsp</th>
+					<th>&nbsp</th>
 				</tr>
 			</thead>
 			<tbody>
 			$for tweet in tweetList:
-				<tr>
+				<tr id="TR-$tweet.getId()">
 					<td>$tweet.getId()</td>
 					<td>$tweet.getMsg()</td>
 					<td>$tweet.getUser()</td>
 					<td>$tweet.getDate()</td>
 					<td>$tweet.getStatus()</td>
+					<td>
+						<button class="deleteTweet" onclick=deleteTweet("$tweet.getId()")>
+							Delete
+						</button>
+					</td>
+					<td>
+						<button class="deleteTweet" onclick=printTweet("$tweet.getId()")>
+							Print
+						</button>
+					</td>
 				</tr>
 			</tbody>
 				
