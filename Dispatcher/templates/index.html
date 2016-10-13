@@ -19,9 +19,9 @@ $def with (tweetList)
 						alert("Non posso cancellare il tweet id: "+tweetId)} });
 				}
 
-				function printTweet(tweetId) {
-					jQuery.ajax({url: "/print?id="+tweetId, success: function(result){
-						jQuery("#TR-"+tweetId+" .status").update(result);}, error: function(result){
+				function printTweet(tweetId, dest) {
+					jQuery.ajax({url: "/print?id="+tweetId+"&tab="+dest, success: function(result){
+						jQuery("#TR-"+tweetId+" .status").html(result);}, error: function(result){
 						alert("Non inviare in stampa il tweet id: "+tweetId)} });
 				}
 			</script>
@@ -36,6 +36,7 @@ $def with (tweetList)
 					<th>User</th>
 					<th>Date</th>
 					<th>State</th>
+					<th>&nbsp</th>
 					<th>&nbsp</th>
 					<th>&nbsp</th>
 				</tr>
@@ -55,7 +56,12 @@ $def with (tweetList)
 					</td>
 					<td>
 						<button class="deleteTweet" onclick=printTweet("$tweet.getId()")>
-							Print
+							White
+						</button>
+					</td>
+					<td>
+						<button class="deleteTweet" onclick=printTweet("$tweet.getId()")>
+							Silver
 						</button>
 					</td>
 				</tr>
