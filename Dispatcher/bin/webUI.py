@@ -4,20 +4,35 @@ import web
 import sys
 import ConfigParser
 from tweetLib import *
-from awsClient import awsSender
-import os.path
+# from awsClient import awsSender
+# import os.path
+from tabHost import tabHost
 
 ###############################################################################
 #				Leggo il contenuto del file di configurazione
 
 # Leggo i parametri di configurazione del dispatcher
 Config = ConfigParser.ConfigParser()
+# Indico a ConfigParser di attivare il Case Sensitive Mode
+Config.optionxform=str
 Config.read("config.ini")
 
 # Recupero il nome del DataBase
 dbName = Config.get("dbName", "dbName")
 
+# Recupero le informazioni di connessione alla stampante
+port = Config.get("tabConnOpt", "port")
+brate = Config.get("tabConnOpt", "brate")
 
+# Recupero le opzioni di stampa
+tabRunOpt = {}
+for key, val in Config.items("tabRunOpt"):
+	tabRunOpt[key] = val
+	
+# print("Port: %s, Baund: %s" %(port, brate))
+# print("Print options: %s" %(tabRunOpt))
+# sys.exit(0)
+	
 ################################################################################
 #				Configurazione della web interface
 
@@ -91,8 +106,18 @@ class Print:
 			
 			# Invio il comando di stampa all'host
 			# Parte ancora da implementare
-			os.system("/usr/bin/python ./bin/TaB_AWS_send.py -t %s -m %s" %(getData["tab"],tweet2Print.getMsg()))
+			# os.system("/usr/bin/python ./bin/TaB_AWS_send.py -t %s -m %s" %(getData["tab"],tweet2Print.getMsg()))
 			# os.system("G:\winPenPack\Bin\Python2\python.exe ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
+			
+			
+			# Modalità di stampa "Standalone"
+			host = tabHost(port, brate)
+			
+			host.connect()
+			
+			host.postProcess(gCodeFile="tweetTest.gcode")
+			
+			host.run()
 			
 			tweet2Print.setStatus("Printed")
 			tweet2Print.save()
