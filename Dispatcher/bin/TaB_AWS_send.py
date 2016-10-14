@@ -13,13 +13,9 @@ host = "a9pmbvndre08y.iot.us-east-1.amazonaws.com"
 #privateKeyPath = "/home/root/certs/e0c16ebcd7-private.pem.key"
 
 tabid = "TaB_02"
-# rootCAPath = "/home/root/certs/root-CA.crt"
-# certificatePath = "/home/root/certs/4cc693a981-certificate.pem.crt"
-# privateKeyPath = "/home/root/certs/4cc693a981-private.pem.key"
-
-rootCAPath = "G:\Projects\tweetABall\Dispatcher\bin\certsroot-CA.crt"
-certificatePath = "G:\Projects\tweetABall\Dispatcher\bin\certs4cc693a981-certificate.pem.crt"
-privateKeyPath = "G:\Projects\tweetABall\Dispatcher\bin\certs4cc693a981-private.pem.key"
+rootCAPath = "/home/root/certs/root-CA.crt"
+certificatePath = "/home/root/certs/4cc693a981-certificate.pem.crt"
+privateKeyPath = "/home/root/certs/4cc693a981-private.pem.key"
 
 #tabid = "TaB_03"
 #rootCAPath = "/home/root/certs/root-CA.crt"
