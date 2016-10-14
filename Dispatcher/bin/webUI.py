@@ -17,19 +17,6 @@ Config.read("config.ini")
 # Recupero il nome del DataBase
 dbName = Config.get("dbName", "dbName")
 
-# Recupero i parametri di connessione ad AWS
-dispatcherAuth = {}
-# Il mio identificativo nella comunicazione
-dispatcherAuth['tabId'] = "tabDispatcher"
-for key, val in Config.items("dispatcher"):
-	dispatcherAuth[key]=os.path.join(os.getcwd(), "certs\dispatcher\mainCA.crt")
-	
-# print ("Silvertab connection options: %s" %(dispatcherAuth) )
-# print ("CWD: %s " %(os.getcwd()) )
-# print "rootCAPath path: "+(os.path.join(os.getcwd(), "certs\dispatcher\mainCA.crt"))
-# print ("rootCAPath exists: %s " %(os.path.exists(dispatcherAuth['rootcapath'])))
-# print ("rootCAPath exists: %s " %(os.path.exists(os.path.join(os.getcwd(), "certs\dispatcher\mainCA.crt"))))
-# sys.exit(0)
 
 ################################################################################
 #				Configurazione della web interface
@@ -99,19 +86,15 @@ class Print:
 		getData = web.input()
 	
 		if getData["id"]:
-			
-			# Recupero il tweet dal DB
+			# Aggiorno lo stato del tweet
 			tweet2Print = Tweet(getData["id"])
 			
-			# Creo ed imposto il client di comunicazione con la stampante
-			dispatcherClient = awsSender(dispatcherAuth)
-			# Mi connetto alla stampante
-			dispatcherClient.connect()
-			# Invio il messaggio alla stampante
-			dispatcherClient.sendMsg(getData["tab"], tweet2Print.getMsg())
+			# Invio il comando di stampa all'host
+			# Parte ancora da implementare
+			# os.system("/bin/python ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
+			os.system("G:\winPenPack\Bin\Python2\python.exe ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
 			
-			# Aggiorno lo stato del tweet
-			tweet2Print.setStatus("Printing")
+			tweet2Print.setStatus("Printed")
 			tweet2Print.save()
 			
 			# Preparo l'output aggiornato
