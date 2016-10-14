@@ -91,8 +91,8 @@ class Print:
 			
 			# Invio il comando di stampa all'host
 			# Parte ancora da implementare
-			# os.system("/bin/python ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
-			os.system("G:\winPenPack\Bin\Python2\python.exe ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
+			os.system("/usr/bin/python ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
+			# os.system("G:\winPenPack\Bin\Python2\python.exe ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
 			
 			tweet2Print.setStatus("Printed")
 			tweet2Print.save()
