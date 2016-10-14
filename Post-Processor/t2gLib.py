@@ -47,7 +47,7 @@ def risePen(gcode):
    Keyword arguments:
    gcode -- array/stringa a cui accodare i comandi G-Code
    """
-   gcode.append("M300 S90")
+   gcode.append("M300 S46")
    #gcode.append("G0 Z0.1000")
 
 #================= lowerPen =====================
@@ -59,7 +59,7 @@ def lowerPen(gcode):
    Keyword arguments:
    gcode -- array/stringa a cui accodare i comandi G-Code
    """
-   gcode.append("M300 S0")
+   gcode.append("M300 S43")
    #gcode.append("G0 Z0")
 
 #================= travel =======================

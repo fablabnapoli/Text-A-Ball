@@ -30,7 +30,7 @@
 """
 # change this if you want to use another font
 # fontfile = "/usr/share/qcad/fonts/romanc.cxf"
-fontfile = "fonts/italict.cxf"
+fontfile = "FONTS/ITALICT.CXF"
 
 #from Tkinter import *
 from math import *
@@ -66,11 +66,12 @@ Flip = 0
 # Contenuto dell'header del G-Code
 Preamble = ["G21 ;Set Units to Millimeters"]
 Preamble +=["G90 ;Set to Absolute Positioning"]
-Preamble +=["G28 ;Move to Origin (Home)"]
+# Preamble +=["G28 ;Move to Origin (Home)"]
 Preamble +=['G0 Z%.4f ;Per compatibilità G-Code viewers'%(Depth)]
 
 # Contenuto footer G-Code
 Postamble = ["M2"]
+Postamble += ["M18"]
 
 stringlist = []
 
