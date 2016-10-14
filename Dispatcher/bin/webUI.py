@@ -15,7 +15,9 @@ from tabHost import tabHost
 Config = ConfigParser.ConfigParser()
 # Indico a ConfigParser di attivare il Case Sensitive Mode
 Config.optionxform=str
-Config.read("config.ini")
+
+Config.read("config.ini") # File di configurazione per l'ambiente di produzione
+# Config.read("devConfig.ini") # File di configurazione per l'abiente di sviluppo
 
 # Recupero il nome del DataBase
 dbName = Config.get("dbName", "dbName")
@@ -24,13 +26,23 @@ dbName = Config.get("dbName", "dbName")
 port = Config.get("tabConnOpt", "port")
 brate = Config.get("tabConnOpt", "brate")
 
+# Recupero il path dell'interprete python
+pythonBin = Config.get("binPath", "pythonBin")
+
+# Recupero il path del Post-Processor
+ppPath = Config.get("binPath", "ppPath")
+
 # Recupero le opzioni di stampa
-tabRunOpt = {}
+tabRunOptStr = ""
 for key, val in Config.items("tabRunOpt"):
-	tabRunOpt[key] = val
+	# tabRunOpt[key] = val
+	tabRunOptStr += '-'+key+val+' '
 	
 # print("Port: %s, Baund: %s" %(port, brate))
 # print("Print options: %s" %(tabRunOpt))
+# print("Bin paths:\n %s \n %s" %(pythonBin, ppPath))
+# print("Print options string:\n %s" %(optStr))
+
 # sys.exit(0)
 	
 ################################################################################
@@ -115,7 +127,11 @@ class Print:
 			
 			host.connect()
 			
-			host.postProcess(gCodeFile="tweetTest.gcode")
+			host.setRunOpt(tabRunOptStr)
+			host.setPythonPath(pythonBin)
+			host.setPpBin(ppPath)
+			
+			host.postProcess(msg=tweet2Print.getMsg())
 			
 			host.run()
 			

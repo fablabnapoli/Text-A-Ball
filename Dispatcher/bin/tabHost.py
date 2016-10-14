@@ -17,8 +17,17 @@ class tabHost():
 	
 	loud = False
 	repStat = True
+	
+	# Default print options
+	tabRunOpt = " -X5 -Y110 -x0 -y50 -S6 -s6"
+	
+	# Default python path
+	pythonBin= "/usr/bin/python"
+	
+	# Default Post-Processor path
+	ppBin= ""
 
-	def __init__(self, port=None, baund=None):
+	def __init__(self, port=None, baund=None, tabRunOpt=None):
 		if port is not None:
 			self.port = port
 		
@@ -44,9 +53,30 @@ class tabHost():
 		self.pCore.loud = self.loud
 		time.sleep(2)
 		
-	def postProcess(self, msg = None, gCodeFile = None):
+	def setRunOpt(self, tabRunOptStr=None):
+		if tabRunOptStr is not None:
+			self.tabRunOpt = tabRunOptStr
+		else:
+			print("Run options must be a non empty string")
+			
+	def setPythonPath(self, pythonBin=None):
+		if pythonBin is not None:
+			self.pythonBin = pythonBin
+		else:
+			print("Python path must be a non empty string")	
+
+	def setPpBin(self, ppBin=None):
+		if ppBin is not None:
+			self.ppBin = ppBin
+		else:
+			print("Post-Processor path must be a non empty string")	
+			
+	def postProcess(self, msg = None, gCodeFile = None, tabRunOptStr= None):
 		
 		if msg is not None:
+			os.system('%s %s %s -0%s > temp.gcode' %(self.pythonBin, self.ppBin, self.tabRunOpt, msg))
+			self.gCode = [i.strip() for i in open("temp.gcode")]
+			self.gCode = gcoder.LightGCode(self.gCode)
 			pass
 		elif gCodeFile is not None:
 			if os.path.exists(gCodeFile):
