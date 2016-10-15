@@ -74,7 +74,7 @@ class tabHost():
 	def postProcess(self, msg = None, gCodeFile = None, tabRunOptStr= None):
 		
 		if msg is not None:
-			os.system('%s %s %s -0%s > temp.gcode' %(self.pythonBin, self.ppBin, self.tabRunOpt, msg))
+			os.system('%s %s %s -0"%s" > temp.gcode' %(self.pythonBin, self.ppBin, self.tabRunOpt, msg))
 			self.gCode = [i.strip() for i in open("temp.gcode")]
 			self.gCode = gcoder.LightGCode(self.gCode)
 			pass

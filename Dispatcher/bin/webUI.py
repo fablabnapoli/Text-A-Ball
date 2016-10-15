@@ -16,8 +16,8 @@ Config = ConfigParser.ConfigParser()
 # Indico a ConfigParser di attivare il Case Sensitive Mode
 Config.optionxform=str
 
-Config.read("config.ini") # File di configurazione per l'ambiente di produzione
-# Config.read("devConfig.ini") # File di configurazione per l'abiente di sviluppo
+# Config.read("config.ini") # File di configurazione per l'ambiente di produzione
+Config.read("devConfig.ini") # File di configurazione per l'abiente di sviluppo
 
 # Recupero il nome del DataBase
 dbName = Config.get("dbName", "dbName")
@@ -120,7 +120,6 @@ class Print:
 			# Parte ancora da implementare
 			# os.system("/usr/bin/python ./bin/TaB_AWS_send.py -t %s -m %s" %(getData["tab"],tweet2Print.getMsg()))
 			# os.system("G:\winPenPack\Bin\Python2\python.exe ./bin/TaB_AWS_send.py -t TaB_01 -m %s" %(tweet2Print.getMsg()))
-			
 			
 			# Modalità di stampa "Standalone"
 			host = tabHost(port, brate)

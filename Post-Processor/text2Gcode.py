@@ -30,7 +30,13 @@
 """
 # change this if you want to use another font
 # fontfile = "/usr/share/qcad/fonts/romanc.cxf"
-fontfile = "FONTS/ITALICT.CXF"
+
+# Font type dev
+# fontfile = "G:/Projects/tweetABall/Post-Processor/FONTS/ITALICT.CXF"
+
+# Font type TaB
+fontfile = "/home/root/GIT/tweetABall/Post-Processor/FONTS/ITALICT.CXF"
+
 
 #from Tkinter import *
 from math import *
@@ -71,6 +77,9 @@ Preamble +=['G0 Z%.4f ;Per compatibilità G-Code viewers'%(Depth)]
 
 # Contenuto footer G-Code
 Postamble = ["M2"]
+Postamble += ["M300 S90"]
+Postamble += ["M300 S46"]
+Postamble += ["G0 X0 Y0"]
 Postamble += ["M18"]
 
 stringlist = []
