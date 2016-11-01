@@ -1,4 +1,4 @@
-# Tweet A Ball
+# Text A Ball
 
 ## What's Tweet A Ball
 TaB is a machine meant to decorate spherical objects (balls) starting from a text message.
