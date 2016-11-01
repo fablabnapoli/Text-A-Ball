@@ -1,5 +1,5 @@
 # Project description.
-Tweet A Ball (TaB) è una robot  ideato per riportare il testo dei tweet contenenti  specifici hashtags su palline, uova ed altre superfici sferiche.
+Text-A-Ball (TaB) è una macchina ideata per riportare il testo dei tweet contenenti  specifici hashtags su palline, uova ed altre superfici sferiche.
 
 A differenza delle altre EggBot e similari in circolazione, TaB è totalmente autonoma e non necessita di una stazione di controllo esterna (PC) o di software per l'elaborazione del testo da stampare.
 
