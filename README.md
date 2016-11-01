@@ -1,4 +1,4 @@
-# Tweet - A - Ball
+# Text-A-Ball
 
 ## Project description.
 This project concerns the ways to convert virtual information into the real world objects and try to simplify access to digital fabrication tools.
